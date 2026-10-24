@@ -22,3 +22,9 @@ Without R2, put image files in public/img and enter /img/yourfile.jpg as the Ima
 - Already deployed the earlier version? Run once: wrangler d1 execute zarem-db --remote --file=migration.sql
 - Owner login: leave email blank, use ADMIN_PASSWORD. Owner > Staff tab: add staff and tick what each can access.
 - Admin login locks for 15 minutes after 5 wrong attempts.
+
+## Deploying on Cloudflare PAGES (GitHub)
+Build command: leave blank | Build output directory: public | Framework preset: None.
+functions/api/[[path]].js runs the API. Bindings (DB, IMAGES) come from wrangler.toml; put your D1 id in it.
+Add secrets in Pages > Settings > Variables and Secrets (ADMIN_PASSWORD, optional PAYSTACK_SECRET_KEY), then redeploy.
+(wrangler-workers.toml.txt is the config for deploying as a Worker instead.)
